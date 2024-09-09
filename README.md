@@ -1,15 +1,35 @@
-1. add .env file in client and SERVER
-  a. client .env FORMAT
-       VITE_API_URL=http://localhost:8000/api/v1  (or production server URL)  
-  b. sever .env FORMAT
-      DB_CONNECT = mongodb connect string from mongodb atlas
-      JWT_PRIVATE_KEY = your key 
-      FRONTEND_URL = http://localhost:5173/ (or production client URL)
+# TODO APP 
 
+a fullstack todo app with drag and drop functionality in MERN stack
 
-2.Install all the server/client npm packages
+## ADD .env in both client and server
+
+client .env
+```javacript
+VITE_API_URL=http://localhost:8000/api/v1  (or production server URL) 
+```
+server .env
+```javacript
+DB_CONNECT = mongodb connect string from mongodb atlas
+JWT_PRIVATE_KEY = your key 
+FRONTEND_URL = http://localhost:5173/ (or production client URL) 
+```
+
+## Installation
+
+Install with npm
+
+1. client 
+```bash
   npm install 
+  npm run dev
+```
+2. server 
+```bash
+  npm install 
+  npm run dev
+```
+    
 
-3. Running the app 
-  a. client = npm run dev 
-  b. server = npm run dev
+
+
