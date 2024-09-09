@@ -5,29 +5,15 @@ import TodoList from '../components/dnd/TodoList';
 import { axiosInstance } from '../apicalls';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../contexts/AuthContext';
+import { TaskContext } from '../contexts/TaskContext';
 
 const Tasks = () => {
   const {tokens, setTokens} = useContext(AuthContext);
+  const {todoData, setTodoData} = useContext(TaskContext);
   const [toggle, setToggle] = useReducer(s=>!s, false);
 
   const [isLoading, setIsLoading] = useState(false);
-  const [todoData, setTodoData] = useState({
-    todo: {
-      id: 1,
-      title: "TODO",
-      items: [],
-    },
-    inprogress: {
-        id: 2,
-        title: "INPROGRESS",
-        items: [],
-      },
-    done: {
-      id: 3,
-      title: "DONE",
-      items: [],
-    },
-  });
+  
   
   const onSubmit =async(formData)=>{
     if( !formData?.title || !formData?.description){
@@ -40,6 +26,17 @@ const Tasks = () => {
         const result = await axiosInstance.post(url,formData);
         console.log(result); 
 
+        // let updatedData = todoData;
+        // updatedData[todo][items] = [...todoData[todo][items],result?.data?.data];
+        // console.log(updatedData);
+        console.log(result?.data?.data);
+        setTodoData({
+          ...todoData,
+          ['todo']: {
+            ...todoData['todo'],
+            items: [...todoData['todo']['items'], result?.data?.data],
+          }
+        }); 
         if(result?.status==200){
           toast.success('task added successfully.');
         }

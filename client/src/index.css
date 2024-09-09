@@ -21,6 +21,9 @@
     padding: 6px;
     
   }
+  .bg-card{
+    background-color: rgb(210, 230, 250);
+  }
   
 
   /* ... */

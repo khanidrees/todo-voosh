@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-export const POPUP = ({ isopen, setToggle, isEdit, onSubmit}) => {
-    const [formData, setFormData] = useState({
+export const POPUP = ({ isopen, setToggle, isEdit, data,onSubmit}) => {
+    const [formData, setFormData] = useState(isEdit ? data:{
         title:'',
         description:'',
     });
@@ -28,7 +28,7 @@ export const POPUP = ({ isopen, setToggle, isEdit, onSubmit}) => {
             {/* <!-- Modal header --> */}
             <div className="flex items-center justify-start p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    Add Task
+                    {isEdit?"Edit ": "Add "} Task
                 </h3>
             </div>
             {/* <!-- Modal body --> */}
@@ -88,10 +88,14 @@ export const POPUP = ({ isopen, setToggle, isEdit, onSubmit}) => {
                     if(formData?.title && formData?.description){
                         setToggle(false);
                         onSubmit(formData);
+                        setFormData({
+                            title:'',
+                            description:'',
+                        })
                     }
                     
                 }}
-                >Add Task</button>
+                >{isEdit?"Edit ": "Add "} Task</button>
             </div>
         </form>
     </div>
