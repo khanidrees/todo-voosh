@@ -5,6 +5,8 @@
       DB_CONNECT = mongodb connect string from mongodb atlas
       JWT_PRIVATE_KEY = your key 
       FRONTEND_URL = http://localhost:5173/ (or production client URL)
+
+
 2.Install all the server/client npm packages
   npm install 
 
