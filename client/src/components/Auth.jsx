@@ -6,12 +6,12 @@ const Auth = ({ children }) => {
     const navigate = useNavigate();
     const {tokens, setTokens} = useContext(AuthContext);
     
-  useEffect(() => {
+  
     if (!tokens) {
         navigate("/signin");
     }
     
-  } , []);
+  
 
   return (
      (
