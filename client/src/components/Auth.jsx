@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 
 const Auth = ({ children }) => {
@@ -8,7 +8,7 @@ const Auth = ({ children }) => {
     
   
     if (!tokens) {
-        navigate("/signin");
+        return <Navigate to={'/signin'} replace/>
     }
     
   
