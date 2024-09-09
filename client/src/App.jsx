@@ -11,8 +11,9 @@ import { AuthContext } from './contexts/AuthContext.js'
 import { useEffect, useState } from 'react';
 
 function getInitialState() {
-  const tokens = localStorage.getItem('tokens')
-  return tokens ? JSON.parse(tokens) : null;
+  const token = localStorage.getItem('token');
+  const id = localStorage.getItem('id');
+  return { token, id };
 }
 
 function App() {
