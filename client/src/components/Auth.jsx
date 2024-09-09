@@ -7,7 +7,7 @@ const Auth = ({ children }) => {
     const {tokens, setTokens} = useContext(AuthContext);
     
   
-    if (!tokens) {
+    if (!tokens?.token) {
         return <Navigate to={'/signin'} replace/>
     }
     
