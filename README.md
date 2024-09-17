@@ -29,6 +29,11 @@ Install with npm
   npm install 
   npm run dev
 ```
+production links
+
+client: https://quiet-naiad-8bef36.netlify.app
+
+sever:      https://todo-voosh-server.onrender.com
     
 
 
